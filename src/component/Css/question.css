@@ -1,0 +1,100 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.que{
+    color:white;
+    /* font-weight:bold; */
+    font-size:30px;
+    margin-top: 50px;
+    margin-left:200px;
+    
+     /* margin:auto; */
+
+}
+.birthdate{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    margin-top: 50px;
+}
+.birth{
+    border:none;
+    background-color:black;
+    /* border-bottom:1px solid white; */
+    width: 200px;
+    color: white;
+    font-size: 20px;
+    margin-left: 30px;
+    box-shadow: 0px 0px 3px #00b3ff;
+}
+.button{
+    width:550px;
+    background-color:blue;
+    color:white;
+    font-size:20px;
+    padding: 8px;
+    border-radius:3px;
+    margin-left:75px;
+    
+
+}
+#btn{
+    margin-top:100px
+}
+#email{
+    display: flex;
+    flex-direction:column;
+    
+}
+.call{
+    display: flex;
+    flex-direction:column;
+}
+.name{
+    background-color: black;
+    color:white;
+    width: 500px;
+    padding: 8px;
+    font-size:30px;
+    /* box-shadow:0 0 10px  #00b3ff; */
+    margin-top: 20px;
+    margin-left:100px;
+    border:none;
+    border-bottom: 2px solid white;
+    
+}
+/* body{
+    background-color:black;
+} */
+.box{
+    border: 2px solid white;
+    width: 50px;
+    padding: 5rem;
+    margin-top:5px;
+}
+.email{
+    background-color:black;
+    color:white;
+    border:none;
+    width:500px;
+    margin-top: 20px;
+    height:40px;
+    font-size: 25px;
+    border-bottom: 1px solid white;
+    margin-left:100px;
+
+}
+.password{
+    margin-top:10px;
+}
+.select{
+    margin-top:20px;
+    width:500px;
+    background-color:black;
+    font-size: 25px;
+    color:white;
+    border:none;
+
+}
