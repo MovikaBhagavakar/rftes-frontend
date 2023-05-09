@@ -7,7 +7,6 @@ import { wrapper } from "../App";
 
 export default function SubNews(props) {
   const [articles, setArticles] = useState([])
-  const [userData, setUserData] = useState(null)
   useEffect(() => {
     fetch(`http://localhost:8080/v1/articles?category=${props.category}`, {
       method: "GET",
@@ -37,10 +36,10 @@ export default function SubNews(props) {
                   date={element?.createdAt}
                   source={element?.source?.name || ""}
                   imgurl={element?.urlToImage || ""}
-                  nwesurl={element?.url || ""}
+                  nwesurl={element?.url || `/news/${element._id}`}
                   id={element?._id}
-                  userData={userData}
-                  setUserData={setUserData}
+                  userData={props.userData}
+                  setUserData={props.setUserData}
                 />
               </div>
             );
