@@ -16,6 +16,7 @@ import Resetpassword from './component/Resetpassword';
 import Home from './component/Home';
 import FullNews from './component/FullNews';
 import Favorites from './component/Favorites';
+import Admin from "./Admin"
 export const wrapper = createContext();
 
 
@@ -49,6 +50,7 @@ const App = () => {
             <Route path="/signup" element={<SignupDetails />}  ></Route>
             <Route path="/news/:id" element={<FullNews />} />
             <Route path="/my-favorites" element={<Favorites userData={userData} setUserData={setUserData} />} />
+            <Route path='/admin' element={<Admin />} />
           </Routes>
 
         </Router>

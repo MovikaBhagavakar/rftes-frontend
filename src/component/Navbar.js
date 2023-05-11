@@ -8,16 +8,12 @@ import { wrapper } from '../App';
 
 
 const Navbar = () => {
-const data=useLocation();
-const{searchvalue, setSearchValue}=useContext(wrapper)
+  const data = useLocation();
+  const { searchvalue, setSearchValue } = useContext(wrapper)
 
-
-
-console.log("data",data)
-
-if(data.pathname==='/login'|| data.pathname==='/signup' || data.pathname==='/forget' || data.pathname==='/reset'){
-  return false;
-}
+  if (data.pathname === '/login' || data.pathname === '/signup' || data.pathname === '/forget' || data.pathname === '/reset') {
+    return false;
+  }
   return (
 
     <div className="row">
@@ -46,8 +42,7 @@ if(data.pathname==='/login'|| data.pathname==='/signup' || data.pathname==='/for
         <div className="container-fluid ">
 
           {/* titles */}
-          <Login/>
-
+          <Login />
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -55,49 +50,48 @@ if(data.pathname==='/login'|| data.pathname==='/signup' || data.pathname==='/for
             <ul className="navbar-nav me-auto mb-2 mb-lg-1 ">
               {/* Home */}
               <li className="nav-item">
-                <NavLink className="nav-link flex" style={{color: 'white' , marginLeft: '50px',marginTop:'8px'}} aria-current="page" to="/home">Home</NavLink>
+                <NavLink className="nav-link flex" style={{ color: 'white', marginLeft: '50px', marginTop: '8px' }} aria-current="page" to="/home">Home</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link " style={{color: 'white',marginTop:'8px'}} aria-current="page" to="/news">News</NavLink>
+                <NavLink className="nav-link " style={{ color: 'white', marginTop: '8px' }} aria-current="page" to="/news">News</NavLink>
               </li>
               {/* Business */}
               <li className="nav-item">
-                <NavLink className="nav-link" style={{color: 'white',marginTop:'8px'}} aria-current="page" to="/business">Business</NavLink>
+                <NavLink className="nav-link" style={{ color: 'white', marginTop: '8px' }} aria-current="page" to="/business">Business</NavLink>
               </li>
               {/* Sports */}
               <li className="nav-item">
-                <NavLink className="nav-link  " style={{color: 'white',marginTop:'8px'}} aria-current="page" to="/sports">Sports</NavLink>
+                <NavLink className="nav-link  " style={{ color: 'white', marginTop: '8px' }} aria-current="page" to="/sports">Sports</NavLink>
               </li>
               {/* Entertainment */}
               <li className="nav-item">
-                <NavLink className="nav-link " style={{color: 'white',marginTop:'8px'}} aria-current="page" to="/entertainment">Entertainment</NavLink>
+                <NavLink className="nav-link " style={{ color: 'white', marginTop: '8px' }} aria-current="page" to="/entertainment">Entertainment</NavLink>
               </li>
               {/* General */}
-             
+
               {/* Health */}
               <li className="nav-item">
-                <NavLink className="nav-link " style={{color: 'white',marginTop:'8px'}} aria-current="page" to="/Health">Health</NavLink>
+                <NavLink className="nav-link " style={{ color: 'white', marginTop: '8px' }} aria-current="page" to="/Health">Health</NavLink>
               </li>
               {/* Science */}
               <li className="nav-item">
-                <NavLink className="nav-link " style={{color: 'white',marginTop:'8px'}} aria-current="page" to="/Science">Science</NavLink>
+                <NavLink className="nav-link " style={{ color: 'white', marginTop: '8px' }} aria-current="page" to="/Science">Science</NavLink>
               </li>
               {/* Technology */}
               <li className="nav-item">
-                <NavLink className="nav-link " style={{color: 'white',marginTop:'8px'}} aria-current="page" to="/Technology">Technology</NavLink>
+                <NavLink className="nav-link " style={{ color: 'white', marginTop: '8px' }} aria-current="page" to="/Technology">Technology</NavLink>
               </li>
             </ul>
-           <form className="d-flex" onSubmit={(e)=>e.preventDefault()}>
-  <input className="form-control me-2"  value={searchvalue} type="search" placeholder="Search your News" aria-label="Search"
-  onChange={(e)=>setSearchValue(e.target.value)} />
-
- 
- 
-</form>
-<NavLink to="/createarticle" style={{border: '1px solid white', width: '100px', height:'50px', backgroundColor:'blue' , color:'white', fontWeight:'bold', fontSize:'15px', textDecoration:"none", marginLeft:"3px", borderRadius:'5px'}}>Create your Own article</NavLink>
+            <form className="d-flex" onSubmit={(e) => e.preventDefault()}>
+              <input className="form-control me-2" value={searchvalue} type="search" placeholder="Search your News" aria-label="Search"
+                onChange={(e) => setSearchValue(e.target.value)} />
 
 
 
+            </form>
+            {
+              localStorage.getItem("rftes") && <NavLink to="/createarticle" style={{ border: '1px solid white', width: '100px', height: '50px', backgroundColor: 'blue', color: 'white', fontWeight: 'bold', fontSize: '15px', textDecoration: "none", marginLeft: "3px", borderRadius: '5px' }}>Create your Own article</NavLink>
+            }
 
           </div>
         </div>

@@ -13,13 +13,10 @@ function Login() {
   }
   return (
     <div className="d-flex align-items-center">
-      {/* <div className='me-3'>
-            <i className="fa-solid fa-user user"></i>
-          </div> */}
       {localStorage.getItem("rftes") && (
         <li className="nav-item dropdown">
           <a
-            className="nav-link dropdown-toggle"
+            className="d-flex align-items-center nav-link dropdown-toggle"
             href=" "
             role="button"
             data-bs-toggle="dropdown"
@@ -30,6 +27,17 @@ function Login() {
             </div>
           </a>
           <ul className="dropdown-menu">
+            {JSON.parse(localStorage.getItem("rftes")).userExist.role ===
+              "admin" && (
+              <li>
+                <div
+                  className="dropdown-item"
+                  onClick={() => navigate("/admin")}
+                >
+                  Admin Panel
+                </div>
+              </li>
+            )}
             <li>
               <div
                 className="dropdown-item"
@@ -39,7 +47,13 @@ function Login() {
               </div>
             </li>
             <li>
-              <a className="dropdown-item" href=" " onClick={() => Logout}>
+              <a
+                className="dropdown-item"
+                href=" "
+                onClick={() => {
+                  Logout();
+                }}
+              >
                 Logout
               </a>
             </li>
