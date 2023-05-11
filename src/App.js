@@ -34,7 +34,7 @@ const App = () => {
           {/* <NewsItem/> */}
 
           <Routes>
-            <Route path="/home " element={<Home />}></Route>
+            <Route path="/home " element={<Home />}  />
             <Route path="/news" element={<News userData={userData} setUserData={setUserData} key="General " pagesize={pagesize} country="in" category="General" color="red" />} />
             <Route path="/business" element={<News key="Business" pagesize={pagesize} country="in" category="Business" />} />
             <Route path="/sports" element={<News key="Sports" pagesize={pagesize} country="in" category="Sports" />} />
@@ -44,6 +44,7 @@ const App = () => {
             <Route path="/Science" element={<News key=" Science" pagesize={pagesize} country="in" category="Science" />} />
             <Route path="/Technology" element={<News key="Technology" pagesize={pagesize} country="in" category="Technology" />} />
             <Route path="/createarticle" element={<Artical />} />
+            <Route path="/try" element={<Home />} />
             <Route path="/forgetPassword" element={<Fogetpass />} />
             <Route path="/resetPassword/:token" element={<Resetpassword />} />
             <Route path="/login" element={<LoginDetails />}></Route>
