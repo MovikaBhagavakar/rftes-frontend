@@ -34,7 +34,7 @@ const App = () => {
           {/* <NewsItem/> */}
 
           <Routes>
-            <Route path="/home " element={<Home />}  />
+            <Route path="/home" element={<Home />} />
             <Route path="/news" element={<News userData={userData} setUserData={setUserData} key="General " pagesize={pagesize} country="in" category="General" color="red" />} />
             <Route path="/business" element={<News key="Business" pagesize={pagesize} country="in" category="Business" />} />
             <Route path="/sports" element={<News key="Sports" pagesize={pagesize} country="in" category="Sports" />} />

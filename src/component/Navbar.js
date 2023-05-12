@@ -60,7 +60,7 @@ const Navbar = () => {
                 <NavLink className="nav-link" style={{ color: 'white', marginTop: '8px' }} aria-current="page" to="/business">Business</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" style={{color: 'white',marginTop:'8px'}} aria-current="page" to="/try">Try</NavLink>
+                <NavLink className="nav-link" style={{ color: 'white', marginTop: '8px' }} aria-current="page" to="/try">Try</NavLink>
               </li>
               {/* Sports */}
               <li className="nav-item">

@@ -1,53 +1,59 @@
-import React from 'react'
+import React from "react";
+import CarouselContainer from "./carousel/CarouselContainer";
 
 function Home() {
+  const [news, setNews] = React.useState([]);
+  const [business, setBusiness] = React.useState([]);
+  const [sports, setSports] = React.useState([]);
+
+  React.useEffect(() => {
+    fetch(
+      "https://newsapi.org/v2/top-headlines?country=in&category=General&apiKey=002b720333a44cb282f10cfe1427fc5d&page=1&pagesize=5&search=",
+      {
+        method: "GET",
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => setNews(data?.articles));
+  }, []);
+
+  React.useEffect(() => {
+    fetch(
+      "https://newsapi.org/v2/top-headlines?country=in&category=Business&apiKey=002b720333a44cb282f10cfe1427fc5d&page=1&pagesize=5&search=",
+      {
+        method: "GET",
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => setBusiness(data?.articles));
+  }, []);
+
+  React.useEffect(() => {
+    fetch(
+      "https://newsapi.org/v2/top-headlines?country=in&category=Sports&apiKey=002b720333a44cb282f10cfe1427fc5d&page=1&pagesize=5&search=",
+      {
+        method: "GET",
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => setSports(data?.articles));
+  }, []);
 
   return (
-    <div style={{marginTop:"200px"}}>  
+    <div
+      className="d-flex flex-column w-100 justify-content-center"
+      style={{ marginTop: "200px", height: "100vh" }}
+    >
+      <CarouselContainer items={news} />
 
-<div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
-  <div className="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to={0} className="active" aria-current="true" aria-label="Slide 1" />
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to={1} aria-label="Slide 2" />
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to={2} aria-label="Slide 3" />
-  </div>
-  <div className="carousel-inner">
-    <div className="carousel-item active">
-      <img src="..." className="d-block w-100" alt="..." />
-      <div className="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
+      <div className="container-fluid">
+        <CarouselContainer heading={"Business"} items={business} />
+      </div>
+      <div className="container-fluid">
+        <CarouselContainer heading={"Sports"} items={sports} />
       </div>
     </div>
-    <div className="carousel-item">
-      <img src="..." className="d-block w-100" alt="..." />
-      <div className="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
-      </div>
-    </div>
-    <div className="carousel-item">
-      <img src="..." className="d-block w-100" alt="..." />
-      <div className="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
-      </div>
-    </div>
-  </div>
-  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-    <span className="carousel-control-prev-icon" aria-hidden="true" />
-    <span className="visually-hidden">Previous</span>
-  </button>
-  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span className="carousel-control-next-icon" aria-hidden="true" />
-    <span className="visually-hidden">Next</span>
-  </button>
-</div>
-
-
-  
- </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
