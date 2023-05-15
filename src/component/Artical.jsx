@@ -7,7 +7,22 @@ export default function Artical() {
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [category, setCategory] = useState("")
-  const [imageupload, setImageUpload] = useState("")
+  const [imageUrl, setImageUrl] = useState("")
+ 
+  const uploadImage = cloudinary.createUploadWidget({
+    cloudName: "dlmsjpzl2",
+    uploadPreset: "rftes_movika",
+    sources: ["local", "url"],
+    clientAllowedFormats: ["jpg", "jpeg", "png"],
+    cropping: true
+    }, async (error, result) => {
+    if (!error && result && result.event === "success") {
+        console.log(result.info.url)
+        setImageUrl(result.info.url)
+    }
+}
+)
+
   return (
 
 
@@ -47,9 +62,10 @@ export default function Artical() {
             <div className="area">
             ImageUpload:
             <br></br>
-            <input type="file"></input>
-            <br/>
-            <div class="line"></div>
+            <button onClick={(e)=>{
+              e.preventDefault();
+              uploadImage.open()
+            }} className="btn">Upload Image</button>
             </div>
             <div className='setting' >
           <button type="button" className="btn btn-primary area area1" onClick={() => {
@@ -63,7 +79,8 @@ export default function Artical() {
               body: JSON.stringify({
                 heading: title,
                 description: description,
-                category: category
+                category: category,
+                imgUrl: imageUrl
               })
             }).then((res)=>res.json()).then((data)=>{
               alert(data.responseMessage);

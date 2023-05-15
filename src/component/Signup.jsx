@@ -16,19 +16,19 @@ export default function Signup(props) {
             <div className="flex">
                 <div className="group">
                     <div className="fcontainer">
-                        <span className="slide" style={{ "--wave": 1 }}>
+                        <span className="customslide" style={{ "--wave": 1 }}>
                             R
                         </span>
-                        <span className="slide" style={{ "--wave": 2 }}>
+                        <span className="customslide" style={{ "--wave": 2 }}>
                             F
                         </span>
-                        <span className="slide" style={{ "--wave": 3 }}>
+                        <span className="customslide" style={{ "--wave": 3 }}>
                             T
                         </span>
-                        <span className="slide" style={{ "--wave": 4 }}>
+                        <span className="customslide" style={{ "--wave": 4 }}>
                             E
                         </span>
-                        <span className="slide" style={{ "--wave": 5 }}>
+                        <span className="customslide" style={{ "--wave": 5 }}>
                             S
                         </span>
                     </div>

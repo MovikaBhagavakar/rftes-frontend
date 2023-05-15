@@ -16,7 +16,7 @@ export default function News(props) {
   // document.title = `${props..category}-Newsmonkey`
   //Api LInk and async method use for reslove the promise 
   const UpdateNews = async () => {
-    let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=002b720333a44cb282f10cfe1427fc5d&page=${page}&pagesize=${props.pagesize}&search=${searchvalue}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${process.env.REACT_APP_NEWSAPI_KEY}&page=${page}&pagesize=${props.pagesize}&search=${searchvalue}`;
     setImage(true)
     //fetch data 
     let data = await fetch(url);
@@ -38,7 +38,7 @@ export default function News(props) {
   const fetchMoreData = async () => {
 
 
-    let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=002b720333a44cb282f10cfe1427fc5d&page=${page + 1}&pagesize=${props.pagesize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${process.env.REACT_APP_NEWSAPI_KEY}&page=${page + 1}&pagesize=${props.pagesize}`;
     // (go to the next page)
     setPage(page + 1)
     let data = await fetch(url);
@@ -58,9 +58,9 @@ export default function News(props) {
       {image && <Sipnner />}
       {/* //infinite scroll use for infinite scrolling */}
       <InfiniteScroll
-        dataLength={articles.length}
+        dataLength={articles?.length}
         next={fetchMoreData}
-        hasMore={articles.length !== totalResults}
+        hasMore={articles?.length !== totalResults}
         loader={<Sipnner />}
       >
         <SubNews category={props.category} userData={props.userData} setUserData={props.setUserData} />
