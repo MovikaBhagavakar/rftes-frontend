@@ -22,7 +22,6 @@ export const wrapper = createContext();
 
 
 const App = () => {
-  const [userData, setUserData] = useState(null);
   const [searchvalue, setSearchValue] = useState(" ")
   const pagesize = 15;
   return (
@@ -34,8 +33,9 @@ const App = () => {
           {/* <NewsItem/> */}
 
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/news" element={<News userData={userData} setUserData={setUserData} key="General " pagesize={pagesize} country="in" category="General" color="red" />} />
+            <Route path="/news" element={<News key="General " pagesize={pagesize} country="in" category="General" color="red" />} />
             <Route path="/business" element={<News key="Business" pagesize={pagesize} country="in" category="Business" />} />
             <Route path="/sports" element={<News key="Sports" pagesize={pagesize} country="in" category="Sports" />} />
             <Route path="/entertainment" element={<News key="Entertainment" pagesize={pagesize} country="in" category="Entertainment" />} />
@@ -50,7 +50,7 @@ const App = () => {
             <Route path="/login" element={<LoginDetails />}></Route>
             <Route path="/signup" element={<SignupDetails />}  ></Route>
             <Route path="/news/:id" element={<FullNews />} />
-            <Route path="/my-favorites" element={<Favorites userData={userData} setUserData={setUserData} />} />
+            <Route path="/my-favorites" element={<Favorites />} />
             <Route path='/admin' element={<Admin />} />
           </Routes>
 

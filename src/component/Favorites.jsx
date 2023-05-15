@@ -3,32 +3,32 @@ import { useState } from "react";
 import NewsItem from "./NewsItem";
 import { useEffect } from "react";
 
-const Favorites = ({ userData, setUserData }) => {
+const Favorites = () => {
   const [fav, setFav] = useState([]);
 
-  useEffect(() => {
-    fetch(
-      `http://localhost:8080/v1/users/${
-        JSON.parse(localStorage.getItem("rftes")).userExist._id
-      }`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${
-            JSON.parse(localStorage.getItem("rftes")).token
-          }`,
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => setFav(data.responseData.favourites));
-  }, []);
+  // useEffect(() => {
+  //   fetch(
+  //     `http://localhost:8080/v1/users/${
+  //       JSON.parse(localStorage.getItem("rftes")).userExist._id
+  //     }`,
+  //     {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${
+  //           JSON.parse(localStorage.getItem("rftes")).token
+  //         }`,
+  //       },
+  //     }
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => setFav(data.responseData.favourites));
+  // }, []);
 
   return (
     <div className="container" style={{ marginTop: "150px" }}>
       <h2 className="fw-bold">My Favorite(s)</h2>
-      <div className="row">
+      {/* <div className="row">
         {fav?.map((element) => {
           console.log(element);
           return (
@@ -51,7 +51,7 @@ const Favorites = ({ userData, setUserData }) => {
             </div>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };

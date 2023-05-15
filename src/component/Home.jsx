@@ -11,11 +11,10 @@ function Home() {
   const [news, setNews] = React.useState([]);
   const [business, setBusiness] = React.useState([]);
   const [sports, setSports] = React.useState([]);
-  const[entertainment, setEntertainment] = React.useState([]);
-  const[health, setHealth] = React.useState([]);
-  const[science, setScience] = React.useState([]);
-  const[tech, settech] = React.useState([]);
-  
+  const [entertainment, setEntertainment] = React.useState([]);
+  const [health, setHealth] = React.useState([]);
+  const [science, setScience] = React.useState([]);
+  const [tech, settech] = React.useState([]);
 
   React.useEffect(() => {
     fetch(
@@ -97,8 +96,6 @@ function Home() {
     >
       <CarouselContainer items={news} />
 
-    
-
       {/* <div className="container-fluid">
         <CarouselContainer heading={"Business"} items={business} />
       </div>
@@ -106,44 +103,35 @@ function Home() {
         <CarouselContainer heading={"Sports"} items={sports} />
       </div> */}
       <div className="row justify-content-evenly">
-      {
-        
-       business.map((item,key)=>{
-        return   <Business data={item} key={key}
-              
-        />
-       })
-      }
-      <hr></hr>
-      {
-        sports.map((item,key)=>{
-          return <Sports data={item} key={key}/>
-        })
-      }
-      <hr></hr>
-      {
-        entertainment.map((item,key)=>{
-          return <Entertainment data={item} key={key}/>
-        })
-      }
-      <hr></hr>
-       {
-        health.map((item,key)=>{
-          return <Health data={item} key={key}/>
-        })
-      }
-      <hr></hr>
-       {
-        science.map((item,key)=>{
-          return <Science data={item} key={key}/>
-        })
-      }
-      <hr></hr>
-       {
-        tech.map((item,key)=>{
-          return <Technology data={item} key={key}/>
-        })
-      }
+        <h2 style={{ marginLeft: "290px" }}>Business</h2>
+        {business.map((item, key) => {
+          return <Business data={item} key={key} />;
+        })}
+        <hr></hr>
+        <h2 style={{ marginLeft: "290px" }}>Sports</h2>
+        {sports.map((item, key) => {
+          return <Sports data={item} key={key} />;
+        })}
+        <hr></hr>
+        <h2 style={{ marginLeft: "290px" }}>Entertainment</h2>
+        {entertainment.map((item, key) => {
+          return <Entertainment data={item} key={key} />;
+        })}
+        <hr></hr>
+        <h2 style={{ marginLeft: "290px" }}>Health</h2>
+        {health.map((item, key) => {
+          return <Health data={item} key={key} />;
+        })}
+        <hr></hr>
+        <h2 style={{ marginLeft: "290px" }}>Science</h2>
+        {science.map((item, key) => {
+          return <Science data={item} key={key} />;
+        })}
+        <hr></hr>
+        <h2 style={{ marginLeft: "290px" }}>Technology</h2>
+        {tech.map((item, key) => {
+          return <Technology data={item} key={key} />;
+        })}
       </div>
     </div>
   );
