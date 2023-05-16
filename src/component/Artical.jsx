@@ -63,7 +63,7 @@ export default function Artical() {
             >
               <option value="Buisness">Business</option>
               <option value="News">News</option>
-              <option value="Sport">Sport</option>
+              <option value="Sports">Sports</option>
               <option value="Health">Health</option>
               <option value="Technology">Technology</option>
               <option value="Science">Science</option>

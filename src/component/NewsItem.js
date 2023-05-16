@@ -15,7 +15,8 @@ const NewsItem = (props) => {
   }, [])
 
   useEffect(() => {
-    if (props.userData?.includes(id)) {
+    let userDataArrState = props?.userData?.map((value) => value._id)
+    if (userDataArrState?.includes(id)) {
       setActive(true)
     } else {
       setActive(false)
@@ -32,25 +33,30 @@ const NewsItem = (props) => {
   }, [active])
 
   const handleLike = () => {
-    if (props.userData?.includes(id)) {
-      const index = props.userData?.indexOf(id);
-      const updatedState = props.userData?.splice(index, 1)
-      props.setUserData(updatedState)
+    let userDataArr = props?.userData?.map((value) => value._id)
+    // console.log(id, userDataArr)
+    if (userDataArr?.includes(id)) {
+      // console.log("if condition");
+      const index = userDataArr?.indexOf(id);
+      // console.log(index);
+      userDataArr?.splice(index, 1)
+      props.setUserData(userDataArr)
 
       fetch(`http://localhost:8080/v1/users/${JSON.parse(localStorage.getItem("rftes")).userExist._id}`, {
         method: "POST",
         body: JSON.stringify({
-          favourites: props.userData
+          favourites: userDataArr
         }),
         headers: {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${JSON.parse(localStorage.getItem("rftes")).token}`
         }
-      })
+      }).then(() => alert("Removed from fav(s) list."))
     } else {
+      // console.log("else condition");
       const updatedState = [...props.userData, id]
       props.setUserData(updatedState)
-      console.log(props.userData)
+      // console.log(props.userData)
       fetch(`http://localhost:8080/v1/users/${JSON.parse(localStorage.getItem("rftes")).userExist._id}`, {
         method: "POST",
         body: JSON.stringify({
@@ -60,7 +66,7 @@ const NewsItem = (props) => {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${JSON.parse(localStorage.getItem("rftes")).token}`
         }
-      })
+      }).then(() => alert("Added to fav(s) list."))
     }
   }
 
