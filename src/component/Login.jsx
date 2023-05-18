@@ -10,6 +10,7 @@ function Login() {
   }, []);
   function Logout() {
     localStorage.clear();
+    navigate("/");
   }
   return (
     <div className="d-flex align-items-center">
@@ -38,6 +39,14 @@ function Login() {
                 </div>
               </li>
             )}
+            <li>
+              <div
+                className="dropdown-item"
+                onClick={() => navigate("/my-articles")}
+              >
+                My Articles
+              </div>
+            </li>
             <li>
               <div
                 className="dropdown-item"

@@ -17,6 +17,7 @@ import Home from './component/Home';
 import FullNews from './component/FullNews';
 import Favorites from './component/Favorites';
 import Admin from "./Admin"
+import MyArticles from './component/Myarticles';
 export const wrapper = createContext();
 
 
@@ -51,6 +52,7 @@ const App = () => {
             <Route path="/signup" element={<SignupDetails />}  ></Route>
             <Route path="/news/:id" element={<FullNews />} />
             <Route path="/my-favorites" element={<Favorites />} />
+            <Route path="/my-articles" element={<MyArticles />} />
             <Route path='/admin' element={<Admin />} />
           </Routes>
 

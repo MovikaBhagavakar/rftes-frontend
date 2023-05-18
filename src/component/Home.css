@@ -1,0 +1,10 @@
+.icon-link {
+    color: blue;
+    margin-right: 10rem;
+    font-size: larger;
+    cursor: pointer;
+}
+
+.icon-link:hover {
+    text-decoration: underline;
+}
