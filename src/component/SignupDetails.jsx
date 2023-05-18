@@ -6,7 +6,7 @@ import Detail from './Detail'
 function SignupDetails() {
   return (
     <div className="fflex">
-      <Signup value='Rgiseter'/>
+      <Signup value='Register'/>
       <Detail/>
     </div>
   )

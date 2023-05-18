@@ -27,7 +27,7 @@ export default function Artical() {
   return (
     <div style={{ marginTop: "150px" }} className="cls">
       <div className="box">
-        <h1 className="text-align center">Your Thoght</h1>
+        <h1 className="text-align center">Your Thoughts</h1>
         <form className="form-horizontal">
           <div className="letter">
             Title:

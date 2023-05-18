@@ -6,6 +6,7 @@ import Entertainment from "../HomepageNews/Entertainment";
 import Health from "../HomepageNews/Health";
 import Science from "../HomepageNews/Science";
 import Technology from "../HomepageNews/Technology";
+import { NavLink } from "react-router-dom";
 
 function Home() {
   const [news, setNews] = React.useState([]);
@@ -103,32 +104,50 @@ function Home() {
         <CarouselContainer heading={"Sports"} items={sports} />
       </div> */}
       <div className="row justify-content-evenly">
-        <h2 style={{ marginLeft: "290px" }}>Business</h2>
+        <div className="d-flex justify-content-between">
+        <h2 style={{ marginLeft: "170px" }}>Business</h2>
+        <NavLink to="/business" style={{ marginRight: "170px",fontSize:"20px" }} >More News</NavLink>
+        </div>
         {business.map((item, key) => {
           return <Business data={item} key={key} />;
         })}
         <hr></hr>
-        <h2 style={{ marginLeft: "290px" }}>Sports</h2>
+        <div className="d-flex justify-content-between">
+        <h2 style={{ marginLeft: "170px" }}>Sports</h2>
+        <NavLink to="/sport" style={{ marginRight: "170px",fontSize:"20px" }} >More News</NavLink>
+        </div>
         {sports.map((item, key) => {
           return <Sports data={item} key={key} />;
         })}
         <hr></hr>
-        <h2 style={{ marginLeft: "290px" }}>Entertainment</h2>
+        <div className="d-flex justify-content-between">
+        <h2 style={{ marginLeft: "170px" }}>Entertainment</h2>
+        <NavLink to="/entertaiment" style={{ marginRight: "170px",fontSize:"20px" }} >More News</NavLink>
+        </div>
         {entertainment.map((item, key) => {
           return <Entertainment data={item} key={key} />;
         })}
         <hr></hr>
-        <h2 style={{ marginLeft: "290px" }}>Health</h2>
+        <div className="d-flex justify-content-between">
+        <h2 style={{ marginLeft: "170px" }}>Health</h2>
+        <NavLink to="/health" style={{ marginRight: "170px",fontSize:"20px" }} >More News</NavLink>
+        </div>
         {health.map((item, key) => {
           return <Health data={item} key={key} />;
         })}
         <hr></hr>
-        <h2 style={{ marginLeft: "290px" }}>Science</h2>
+        <div className="d-flex justify-content-between">
+        <h2 style={{ marginLeft: "170px" }}>Science</h2>
+        <NavLink to="/science" style={{ marginRight: "170px",fontSize:"20px" }} >More News</NavLink>
+        </div>
         {science.map((item, key) => {
           return <Science data={item} key={key} />;
         })}
         <hr></hr>
-        <h2 style={{ marginLeft: "290px" }}>Technology</h2>
+        <div className="d-flex justify-content-between">
+        <h2 style={{ marginLeft: "170px" }}>Technology</h2>
+        <NavLink to="/technology" style={{ marginRight: "170px",fontSize:"20px" }} >More News</NavLink>
+        </div>
         {tech.map((item, key) => {
           return <Technology data={item} key={key} />;
         })}

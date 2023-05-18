@@ -9,13 +9,24 @@ const CarouselContainer = ({ items, heading }) => {
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
+  const a=new Date();
+  const newdate=a.getDay()+1+a.getMonth()+a.getFullYear()
+  // const ab=newdate.a.toDateString();
+
+
 
   const navigate = useNavigate();
   return (
+    <>
+    <div className="d-flex justify-content-evenly">
+    <h1 style={{fontFamily:'Sono, sans-serif', color: 'gray'}}>Welcome to RFTES.com</h1>
+    {/* <h1>{ab}</h1> */}
+    </div>
+      
     <div className="d-flex justify-content-center">
       <Card body className="w-75 my-3">
         {heading && <h2>{heading}</h2>}
-        <Carousel activeIndex={index} onSelect={handleSelect} l>
+        <Carousel activeIndex={index} onSelect={handleSelect} >
           {items?.map((item, key) => {
             return (
               <Carousel.Item
@@ -42,6 +53,7 @@ const CarouselContainer = ({ items, heading }) => {
         </Carousel>
       </Card>
     </div>
+    </>
   );
 };
 
