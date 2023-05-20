@@ -1,7 +1,7 @@
 import React from "react";
 
 function Sport({ data }) {
-  const { title, description, urlToImage, nwesurl, author, date, source, id } =
+  const { title, description, urlToImage, url, author, date, source, id } =
     data;
   return (
     <>
@@ -24,7 +24,7 @@ function Sport({ data }) {
 
           <a
             rel="noreferrer"
-            href={nwesurl}
+            href={url}
             target="_blank"
             className="btn btn-sm btn-primary"
           >

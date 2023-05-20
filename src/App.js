@@ -23,7 +23,7 @@ export const wrapper = createContext();
 
 
 const App = () => {
-  const [searchvalue, setSearchValue] = useState(" ")
+  const [searchvalue, setSearchValue] = useState(null)
   const pagesize = 15;
   return (
 

@@ -11,7 +11,7 @@ const Navbar = () => {
   const data = useLocation();
   const { searchvalue, setSearchValue } = useContext(wrapper)
 
-  if (data.pathname === '/login' || data.pathname === '/signup' || data.pathname === '/forget' || data.pathname === '/reset') {
+  if (data.pathname === '/login' || data.pathname === '/signup' || data.pathname === '/forget' || data.pathname === '/reset' || data.pathname === '/forgetPassword') {
     return false;
   }
   return (

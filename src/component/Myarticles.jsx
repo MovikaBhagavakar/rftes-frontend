@@ -38,6 +38,7 @@ const MyArticles = () => {
               userData={userData}
               setUserData={setUserData}
               source={article.published ? "Published" : "Not Published"}
+              
             />
           );
         })}

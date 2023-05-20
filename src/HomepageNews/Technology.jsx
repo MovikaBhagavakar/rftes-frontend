@@ -5,7 +5,7 @@ function Technology({ data }) {
     title,
     description,
     urlToImage,
-    nwesurl,
+    url,
     author,
     date,
     source,
@@ -33,7 +33,7 @@ function Technology({ data }) {
 
           <a
             rel="noreferrer"
-            href={nwesurl}
+            href={url}
             target="_blank"
             className="btn btn-sm btn-primary"
           >
