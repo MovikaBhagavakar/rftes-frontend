@@ -79,7 +79,7 @@ function Login() {
           </NavLink>
         )}
       </div>
-      <div className="line"></div>
+      {/* <div className="line"></div> */}
     </div>
   );
 }

@@ -25,7 +25,7 @@ const MyArticles = () => {
   return (
     <div className="container" style={{ marginTop: "150px" }}>
       <h2>My Articles</h2>
-      <div className="container">
+      <div className="container d-flex flex-wrap">
         {articles?.map((article, key) => {
           return (
             <NewsItem

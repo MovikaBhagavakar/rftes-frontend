@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const NewsItem = (props) => {
   const [active, setActive] = useState(false)
   const[image , setImage] = useState(false)
+  const navigate = useNavigate()
   //  add props
   let { title, description, imgurl, nwesurl, author, date, source, id } = props;
 
@@ -71,19 +73,28 @@ const NewsItem = (props) => {
     }
   }
 
+  const location = useLocation();
   return (
-
     <div>
-      <div className="card my-5" style={{ width: "20rem" }}>
+      <div className="card my-5 mx-3" style={{ width: "20rem" }}>
         {/* showing top titles  */}
         <span style={{ left: "10%", textAlign: "end" }} className="position-absolute top=0 start=100  translate-middle badge rounded-pill bg-danger">
           {source}</span>
         {
-          id && <div className={`p-2 position-absolute ${active && "bg-danger"}`} style={{ borderRadius: "50%" }}>
-            <i onClick={() => {
-              setActive(!active)
-              handleLike()
-            }} className="fa-regular fa-heart text-white" style={{ cursor: "pointer" }}></i>
+          id && <div className='w-100 d-flex justify-content-between position-absolute'>
+            <div className={`p-2 ${active && "bg-danger"}`} style={{ borderRadius: "50%" }}>
+              <i onClick={() => {
+                setActive(!active)
+                handleLike()
+              }} className="fa-regular fa-heart text-white" style={{ cursor: "pointer" }}></i>
+            </div>
+            {
+              location.pathname === "/my-articles" && <div className={`p-2 ${active && "bg-danger"}`} style={{ borderRadius: "50%" }}>
+                <i onClick={() => {
+                  navigate(`/update-article/${id}`)
+                }} class="fa-regular fa-pen-to-square text-white" style={{ cursor: "pointer" }}></i>
+              </div>
+            }
           </div>
         }
         {/* if image is null then this image will show */}
@@ -92,15 +103,10 @@ const NewsItem = (props) => {
         <p className="card-text">{description}...</p>
         {/* add dates and author */}
         <p className="card-text">By {!author ? 'unknown' : author} on {new Date(date).toGMTString()}</p>
-
         <a rel="noreferrer" href={nwesurl} target="_blank" className="btn btn-sm btn-primary">Read More</a>
-
       </div>
-
     </div>
-
   )
-
 }
 
 export default NewsItem

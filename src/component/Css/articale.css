@@ -1,45 +1,47 @@
-.box{
-    
-    height: 900px;
+.box {
+
+    height: max-content;
     width: 800px;
     margin: auto;
     background-color: white;
     padding: 10px;
     box-shadow: 0px 0px 0px 3px black;
     /* text-shadow:0px 0px 120px #00b3ff */
-    
 
-  
+
+
 }
+
 /* .line{
     border:2px solid black;
     width: 150px;
     height: 150px;
 } */
 
-.form-control{
+.form-control {
     font-size: 20px;
     list-style: none;
-    margin-top:5px
+    margin-top: 5px
+}
 
-    
-    
+.form-horizontal {
+    font-size: 25px;
+
 }
-.form-horizontal{
-    font-size:25px;
-    
-}
-.letter{
+
+.letter {
     letter-spacing: 2px;
 }
-.area{
-    margin-top:10px
+
+.area {
+    margin-top: 10px
 }
-.cls{
-    background-image:linear-gradient( to right, blue ,black);
+
+.cls {
+    background-image: linear-gradient(to right, blue, black);
     /* max-width: 100%; */
     background-size: cover;
-    min-height: 500px;
+    /* height: 100vh; */
     /* max-height: 100%; */
     background-attachment: fixed;
     /* background-position: auto; */
@@ -49,16 +51,18 @@
     /* background-size: cover; */
     /* background-color: aliceblue; */
 }
-.area1{
-    background-image:linear-gradient( to right, blue ,black);
-    font-size:28px;
+
+.area1 {
+    background-image: linear-gradient(to right, blue, black);
+    font-size: 28px;
     width: 120px;
     /* margin-top:50px; */
     padding: 5px;
 }
-.setting{
+
+.setting {
 
     margin-top: 23px;
- display: flex;
- justify-content:space-around;
+    display: flex;
+    justify-content: space-around;
 }

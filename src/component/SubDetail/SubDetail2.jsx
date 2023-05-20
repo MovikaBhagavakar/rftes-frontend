@@ -1,7 +1,10 @@
 import React from 'react'
+    import {IoMdArrowRoundBack} from 'react-icons/io';
 
 function SubDetail2({setDay, setMonth, setYear}) {
   return (
+    <>
+   
     <div className="birthdate">
                 <input onChange={(e)=>setDay(e.target.value)} type="text" placeholder="Day" className="birth" id="day" required></input>
                 <input onChange={(e)=>setMonth(e.target.value)} type="text" placeholder="Month" className="birth" required></input>
@@ -10,7 +13,10 @@ function SubDetail2({setDay, setMonth, setYear}) {
                 var a={document.getElementById("day").value}
 
             </script> */}
+               
             </div>
+       
+            </>
   )
 }
 

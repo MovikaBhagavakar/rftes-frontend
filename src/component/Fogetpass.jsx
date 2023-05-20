@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Signup from './Signup';
-import {IoMdArrowRoundBack} from 'react-icons/io';
-// import './Css/Add'
+// import {IoMdArrowRoundBack} from 'react-icons/io';
+import './Css/Add.css'
 
 function Fogetpass() {
   const navigate = useNavigate()
     const[email, setEmail]=useState(null)
   return (
-    <div>
-<IoMdArrowRoundBack/>
+    <>
+    <div className="code">
+{/* <IoMdArrowRoundBack className='icon'/> */}
+{/* <p style={{color: 'white'}}>Back</p> */}
     <form>
       {/* <Signup /> */}
       <div className="group">
@@ -30,7 +32,9 @@ function Fogetpass() {
                             S
                         </span>
                     </div>
-
+                    <div className="sign">
+                        <p>Register Email</p>
+                        </div>
                    
                     {/* <Detail /> */}
 
@@ -39,14 +43,16 @@ function Fogetpass() {
                 </div>
 
   <div >
-  <div className="mb-3" style={{marginTop:'200px'}}>
-    <label htmlFor="exampleInputEmail1" className="form-label add"  >Email address</label>
-    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  value={email} onChange={(e)=>setEmail(e.target.value)} />
+    <div className="line">
+  <div className="mb-3">
+    <label htmlFor="exampleInputEmail1" className="form-label add"  >Email address:</label>
+    <input type="email" className="form-control" placeholder="xxxx@gmail.xxx"id="exampleInputEmail1" aria-describedby="emailHelp"  value={email} onChange={(e)=>setEmail(e.target.value)} />
     {/* <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div> */}
   </div>
+ 
   
   
-  <button type="submit" className="btn btn-primary" onClick={(e)=>{
+  <button type="submit" className="btn btn-primary sub" onClick={(e)=>{
     e.preventDefault();
     fetch("http://localhost:8080/v1/users/forgetPassword",{
         method: "POST",
@@ -62,9 +68,11 @@ function Fogetpass() {
     }).catch((err)=>console.log(err.message))
   }}>Submit</button>
 </div>
+</div>
 
 </form>
-    </div>
+</div>
+    </>
   )
 }
 

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Css/articale.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Artical() {
   const navigate = useNavigate();
@@ -8,8 +8,40 @@ export default function Artical() {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const location = useLocation();
+  const [currentPathName, setCurrentPathName] = useState(null);
 
-  const uploadImage = cloudinary.createUploadWidget(
+  useEffect(() => {
+    if (location.pathname !== "/create-article") {
+      fetch(
+        `http://localhost:8080/v1/articles/${location.pathname.split("/")[2]}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${
+              JSON.parse(localStorage.getItem("rftes")).token
+            }`,
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setTitle(data.responseData.article.heading);
+          setDescription(data.responseData.article.description);
+          setCategory(data.responseData.article.category);
+          setImageUrl(data.responseData.article.imgUrl);
+        });
+    } else {
+      setTitle("");
+      setDescription("");
+      setCategory("");
+      setImageUrl("");
+      setCurrentPathName("/create-article");
+    }
+  }, [location]);
+
+  // eslint-disable-next-line no-undef
+  const uploadImage = cloudinary?.createUploadWidget(
     {
       cloudName: "dlmsjpzl2",
       uploadPreset: "rftes_movika",
@@ -23,12 +55,22 @@ export default function Artical() {
       }
     }
   );
-
   return (
-    <div style={{ marginTop: "150px" }} className="cls">
+    <div style={{ marginTop: "115px", overflowY: "auto" }} className="cls">
       <div className="box">
         <h1 className="text-align center">Your Thoughts</h1>
         <form className="form-horizontal">
+          <div className="letter">
+            Image
+            <br></br>
+            <img
+              height={"100%"}
+              width={"100%"}
+              src={imageUrl}
+              alt=""
+              srcset=""
+            />
+          </div>
           <div className="letter">
             Title:
             <br></br>
@@ -61,7 +103,7 @@ export default function Artical() {
               value={category}
               onChange={(e) => setCategory(e.target.value)}
             >
-              <option value="Buisness">Business</option>
+              <option value="Business">Business</option>
               <option value="News">News</option>
               <option value="Sports">Sports</option>
               <option value="Health">Health</option>
@@ -88,33 +130,68 @@ export default function Artical() {
               type="button"
               className="btn btn-primary area area1"
               onClick={() => {
-                fetch("http://localhost:8080/v1/articles", {
-                  method: "POST",
-                  headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${
-                      JSON.parse(localStorage.getItem("rftes")).token
-                    }`,
-                  },
-                  body: JSON.stringify({
-                    heading: title,
-                    description: description,
-                    category: category,
-                    imgUrl: imageUrl,
-                  }),
-                })
-                  .then((res) => res.json())
-                  .then((data) => {
-                    alert(data.responseMessage);
-                    setTitle(null);
-                    setDescription(null);
-                    setCategory(null);
-                    navigate("/news");
+                if (location.pathname === "/create-article") {
+                  fetch("http://localhost:8080/v1/articles", {
+                    method: "POST",
+                    headers: {
+                      Accept: "application/json",
+                      "Content-Type": "application/json",
+                      Authorization: `Bearer ${
+                        JSON.parse(localStorage.getItem("rftes")).token
+                      }`,
+                    },
+                    body: JSON.stringify({
+                      heading: title,
+                      description: description,
+                      category: category,
+                      imgUrl: imageUrl,
+                    }),
                   })
-                  .catch((err) => {
-                    alert(err.response.data.responseMessage);
-                  });
+                    .then((res) => res.json())
+                    .then((data) => {
+                      alert(data.responseMessage);
+                      setTitle(null);
+                      setDescription(null);
+                      setCategory(null);
+                      navigate("/news");
+                    })
+                    .catch((err) => {
+                      alert(err.response.data.responseMessage);
+                    });
+                } else {
+                  fetch(
+                    `http://localhost:8080/v1/articles/${
+                      location.pathname.split("/")[2]
+                    }`,
+                    {
+                      method: "PUT",
+                      headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${
+                          JSON.parse(localStorage.getItem("rftes")).token
+                        }`,
+                      },
+                      body: JSON.stringify({
+                        heading: title,
+                        description: description,
+                        category: category,
+                        imgUrl: imageUrl,
+                      }),
+                    }
+                  )
+                    .then((res) => res.json())
+                    .then((data) => {
+                      alert(data.responseMessage);
+                      setTitle(null);
+                      setDescription(null);
+                      setCategory(null);
+                      navigate("/news");
+                    })
+                    .catch((err) => {
+                      alert(err.response.data.responseMessage);
+                    });
+                }
               }}
             >
               Create

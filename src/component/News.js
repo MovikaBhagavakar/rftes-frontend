@@ -16,7 +16,7 @@ export default function News(props) {
   // document.title = `${props..category}-Newsmonkey`
   //Api LInk and async method use for reslove the promise 
   const UpdateNews = async () => {
-    let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${process.env.REACT_APP_NEWSAPI_KEY}&page=${page}&pagesize=${props.pagesize}&search=${searchvalue}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${process.env.REACT_APP_NEWSAPI_KEY}&page=${page}&pagesize=${props.pagesize}&q=${searchvalue}`;
     setImage(true)
     //fetch data 
     let data = await fetch(url);
