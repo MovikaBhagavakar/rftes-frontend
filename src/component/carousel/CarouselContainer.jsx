@@ -56,7 +56,7 @@ const CarouselContainer = ({ items, heading }) => {
                 <Carousel.Item
                   key={key}
                   onClick={() => {
-                    navigate(item?.url);
+                    window.location.href = item?.url;
                   }}
                 >
                   <img

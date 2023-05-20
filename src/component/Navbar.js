@@ -93,7 +93,7 @@ const Navbar = () => {
 
             </form>
             {
-              localStorage.getItem("rftes") && <NavLink to="/createarticle" style={{ border: '1px solid white', width: '100px', height: '50px', backgroundColor: 'blue', color: 'white', fontWeight: 'bold', fontSize: '15px', textDecoration: "none", marginLeft: "3px", borderRadius: '5px' }}>Create your Own article</NavLink>
+              localStorage.getItem("rftes") && <NavLink to="/create-article" style={{ border: '1px solid white', width: '100px', height: '50px', backgroundColor: 'blue', color: 'white', fontWeight: 'bold', fontSize: '15px', textDecoration: "none", marginLeft: "3px", borderRadius: '5px' }}>Create your Own article</NavLink>
             }
 
           </div>

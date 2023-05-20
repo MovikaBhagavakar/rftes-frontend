@@ -23,7 +23,7 @@ export const wrapper = createContext();
 
 
 const App = () => {
-  const [searchvalue, setSearchValue] = useState(" ")
+  const [searchvalue, setSearchValue] = useState("")
   const pagesize = 15;
   return (
 
@@ -44,7 +44,8 @@ const App = () => {
             <Route path="/Health" element={<News key="Health" pagesize={pagesize} country="in" category="Health" />} />
             <Route path="/Science" element={<News key=" Science" pagesize={pagesize} country="in" category="Science" />} />
             <Route path="/Technology" element={<News key="Technology" pagesize={pagesize} country="in" category="Technology" />} />
-            <Route path="/createarticle" element={<Artical />} />
+            <Route path="/create-article" element={<Artical />} />
+            <Route path="/update-article/:id" element={<Artical />} />
             <Route path="/try" element={<Home />} />
             <Route path="/forgetPassword" element={<Fogetpass />} />
             <Route path="/resetPassword/:token" element={<Resetpassword />} />
