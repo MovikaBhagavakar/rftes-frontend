@@ -7,16 +7,16 @@ import { wrapper } from '../App';
 
 
 
-const Navbar = () => {
+const Navbar = ({ nav }) => {
   const data = useLocation();
   const { searchvalue, setSearchValue } = useContext(wrapper)
 
-  if (data.pathname === '/login' || data.pathname === '/signup' || data.pathname === '/forget' || data.pathname === '/reset' || data.pathname === '/forgetPassword' || data.pathname === '/resetPassword/:token') {
+  if (data.pathname === '/login' || data.pathname === '/signup' || data.pathname === '/forget' || data.pathname === '/reset' || data.pathname === '/forgetPassword') {
     return false;
   }
   return (
 
-    <div className="row">
+    <div className="row" style={{ display: nav }}>
 
       <nav className="navbar fixed-top navbar-expand-sm navbar-dark bg-darkblack">
         <div className="container1">
@@ -46,8 +46,8 @@ const Navbar = () => {
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-1 ">
+          <div className="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+            <ul className="navbar-nav mb-2 mb-lg-1 ">
               {/* Home */}
               <li className="nav-item">
                 <NavLink className="nav-link flex" style={{ color: 'white', marginLeft: '50px', marginTop: '8px' }} aria-current="page" to="/home">Home</NavLink>
@@ -86,16 +86,12 @@ const Navbar = () => {
               </li>
             </ul>
             <form className="d-flex" onSubmit={(e) => e.preventDefault()}>
-              <input className="form-control me-2" value={searchvalue} type="search" placeholder="Search your News" aria-label="Search"
+              <input className="me-2 w-75" value={searchvalue} type="search" placeholder="Search your News" aria-label="Search"
                 onChange={(e) => setSearchValue(e.target.value)} />
-
-
-
+              {
+                localStorage.getItem("rftes") && <NavLink to="/create-article" style={{ border: '1px solid white', width: '100px', height: '50px', backgroundColor: 'blue', color: 'white', fontWeight: 'bold', fontSize: '15px', textDecoration: "none", marginLeft: "3px", borderRadius: '5px' }}>Create your Own article</NavLink>
+              }
             </form>
-            {
-              localStorage.getItem("rftes") && <NavLink to="/create-article" style={{ border: '1px solid white', width: '100px', height: '50px', backgroundColor: 'blue', color: 'white', fontWeight: 'bold', fontSize: '15px', textDecoration: "none", marginLeft: "3px", borderRadius: '5px' }}>Create your Own article</NavLink>
-            }
-
           </div>
         </div>
       </nav>

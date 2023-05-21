@@ -1,13 +1,8 @@
 import React from "react";
 import CarouselContainer from "./carousel/CarouselContainer";
-import Business from "../HomepageNews/Business";
-import Sports from "../HomepageNews/Sport";
-import Entertainment from "../HomepageNews/Entertainment";
-import Health from "../HomepageNews/Health";
-import Science from "../HomepageNews/Science";
-import Technology from "../HomepageNews/Technology";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import HomePageNewsComp from "../HomepageNews/HomePageNewsComp";
 
 const MoreNews = ({ path }) => {
   const navigate = useNavigate();
@@ -36,7 +31,7 @@ function Home() {
   const [entertainment, setEntertainment] = React.useState([]);
   const [health, setHealth] = React.useState([]);
   const [science, setScience] = React.useState([]);
-  const [tech, settech] = React.useState([]);
+  const [tech, setTech] = React.useState([]);
 
   React.useEffect(() => {
     fetch(
@@ -108,13 +103,13 @@ function Home() {
       }
     )
       .then((res) => res.json())
-      .then((data) => settech(data?.articles));
+      .then((data) => setTech(data?.articles));
   }, []);
 
   return (
     <div
       className="d-flex flex-column w-100 justify-content-center"
-      style={{ marginTop: "2000px", height: "100vh" }}
+      style={{ marginTop: "1500px", height: "100vh" }}
     >
       <CarouselContainer items={news} />
 
@@ -129,48 +124,48 @@ function Home() {
           <h2 style={{ marginLeft: "170px" }}>Business</h2>
           <MoreNews path={"business"} />
         </div>
-        {business.map((item, key) => {
-          return <Business data={item} key={key} />;
+        {business?.map((item, key) => {
+          return <HomePageNewsComp data={item} key={key} />;
         })}
         <hr></hr>
         <div className="d-flex justify-content-between">
           <h2 style={{ marginLeft: "170px" }}>Sports</h2>
           <MoreNews path={"sports"} />
         </div>
-        {sports.map((item, key) => {
-          return <Sports data={item} key={key} />;
+        {sports?.map((item, key) => {
+          return <HomePageNewsComp data={item} key={key} />;
         })}
         <hr></hr>
         <div className="d-flex justify-content-between">
           <h2 style={{ marginLeft: "170px" }}>Entertainment</h2>
           <MoreNews path={"entertainment"} />
         </div>
-        {entertainment.map((item, key) => {
-          return <Entertainment data={item} key={key} />;
+        {entertainment?.map((item, key) => {
+          return <HomePageNewsComp data={item} key={key} />;
         })}
         <hr></hr>
         <div className="d-flex justify-content-between">
           <h2 style={{ marginLeft: "170px" }}>Health</h2>
           <MoreNews path={"health"} />
         </div>
-        {health.map((item, key) => {
-          return <Health data={item} key={key} />;
+        {health?.map((item, key) => {
+          return <HomePageNewsComp data={item} key={key} />;
         })}
         <hr></hr>
         <div className="d-flex justify-content-between">
           <h2 style={{ marginLeft: "170px" }}>Science</h2>
           <MoreNews path={"science"} />
         </div>
-        {science.map((item, key) => {
-          return <Science data={item} key={key} />;
+        {science?.map((item, key) => {
+          return <HomePageNewsComp data={item} key={key} />;
         })}
         <hr></hr>
         <div className="d-flex justify-content-between">
           <h2 style={{ marginLeft: "170px" }}>Technology</h2>
           <MoreNews path={"technology"} />
         </div>
-        {tech.map((item, key) => {
-          return <Technology data={item} key={key} />;
+        {tech?.map((item, key) => {
+          return <HomePageNewsComp data={item} key={key} />;
         })}
       </div>
     </div>

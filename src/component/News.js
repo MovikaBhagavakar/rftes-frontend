@@ -9,7 +9,7 @@ import SubNews from "./SubNews";
 export default function News(props) {
   //use state for intial value 
   const [articles, setArticle] = useState([])
-  const [image, setImage] = useState(true)
+  const [image, setImage] = useState(false)
   const [totalResults, setTotalResults] = useState(0)
   const [page, setPage] = useState(1);
   const { searchvalue } = useContext(wrapper)

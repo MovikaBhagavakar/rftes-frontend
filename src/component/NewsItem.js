@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const NewsItem = (props) => {
   const [active, setActive] = useState(false)
-  const[image , setImage] = useState(false)
+  const [image, setImage] = useState(false)
   const navigate = useNavigate()
   //  add props
   let { title, description, imgurl, nwesurl, author, date, source, id } = props;
@@ -98,11 +98,11 @@ const NewsItem = (props) => {
           </div>
         }
         {/* if image is null then this image will show */}
-        <img  src={imgurl ?imgurl:"https:static.toiimg.com/thumb/msid-93287340,width-1070,height-580,imgsize-221349,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpgs"} className="card-img-top" alt="img"  data-bs-toggle="tooltip"/>
-        <h5 className="card-title">{title}...</h5>
-        <p className="card-text">{description}...</p>
+        <img src={imgurl ? imgurl : "https://static.toiimg.com/thumb/msid-93287340,width-1070,height-580,imgsize-221349,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg"} className="card-img-top" alt="img" height="200px" width={"100%"} data-bs-toggle="tooltip" />
+        <h5 className="card-title" style={{ height: "60px" }}>{title}...</h5>
+        <p className="card-text" style={{ height: "70px" }}>{description}...</p>
         {/* add dates and author */}
-        <p className="card-text">By {!author ? 'unknown' : author} on {new Date(date).toGMTString()}</p>
+        <p className="card-text" style={{ height: "40px" }}>By {!author ? 'unknown' : author} on {new Date(date).toGMTString()}</p>
         <a rel="noreferrer" href={nwesurl} target="_blank" className="btn btn-sm btn-primary">Read More</a>
       </div>
     </div>

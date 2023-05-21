@@ -23,6 +23,7 @@ export const wrapper = createContext();
 
 
 const App = () => {
+  const [nav, setNav] = useState("flex");
   const [searchvalue, setSearchValue] = useState("")
   const pagesize = 15;
   return (
@@ -30,7 +31,7 @@ const App = () => {
     <div>
       <wrapper.Provider value={{ searchvalue, setSearchValue }}>
         <Router>
-          <Navbar />
+          <Navbar nav={nav} />
           {/* <NewsItem/> */}
 
           <Routes>
@@ -48,7 +49,7 @@ const App = () => {
             <Route path="/update-article/:id" element={<Artical />} />
             <Route path="/try" element={<Home />} />
             <Route path="/forgetPassword" element={<Fogetpass />} />
-            <Route path="/resetPassword/:token" element={<Resetpassword />} />
+            <Route path="/resetPassword/:token" element={<Resetpassword setNav={setNav} />} />
             <Route path="/login" element={<LoginDetails />}></Route>
             <Route path="/signup" element={<SignupDetails />}  ></Route>
             <Route path="/news/:id" element={<FullNews />} />
