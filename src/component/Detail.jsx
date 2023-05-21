@@ -50,7 +50,7 @@ export default function Detail() {
         confirmPassword: values.confirmPassword,
       };
 
-      fetch("http://localhost:8080/v1/users/signup", {
+      fetch(`${process.env.REACT_APP_SERVER_URL}/v1/users/signup`, {
         body: JSON.stringify(formValues),
         headers: {
           Accept: "application/json",

@@ -14,7 +14,7 @@ const Admin = () => {
 
   React.useEffect(() => {
     if (JSON.parse(localStorage.getItem("rftes")).userExist.role === "admin") {
-      fetch("http://localhost:8080/v1/admin/articles", {
+      fetch(`${process.env.REACT_APP_SERVER_URL}/v1/admin/articles`, {
         method: "GET",
       })
         .then((res) => res.json())
@@ -28,7 +28,7 @@ const Admin = () => {
 
   React.useEffect(() => {
     if (JSON.parse(localStorage.getItem("rftes")).userExist.role === "admin") {
-      fetch("http://localhost:8080/v1/admin/articles", {
+      fetch(`${process.env.REACT_APP_SERVER_URL}/v1/admin/articles`, {
         method: "GET",
       })
         .then((res) => res.json())
@@ -70,7 +70,7 @@ const Admin = () => {
                 <AdminArticleAction
                   onClick={() => {
                     fetch(
-                      `http://localhost:8080/v1/admin/articles/${article._id}`,
+                      `${process.env.REACT_APP_SERVER_URL}/v1/admin/articles/${article._id}`,
                       {
                         method: "PUT",
                         body: JSON.stringify({
@@ -94,7 +94,7 @@ const Admin = () => {
                 <AdminArticleAction
                   onClick={() => {
                     fetch(
-                      `http://localhost:8080/v1/admin/articles/${article._id}`,
+                      `${process.env.REACT_APP_SERVER_URL}/v1/admin/articles/${article._id}`,
                       {
                         method: "DELETE",
                       }
@@ -112,7 +112,7 @@ const Admin = () => {
                 <AdminArticleAction
                   onClick={() => {
                     fetch(
-                      `http://localhost:8080/v1/admin/articles/${article._id}`,
+                      `${process.env.REACT_APP_SERVER_URL}/v1/admin/articles/${article._id}`,
                       {
                         method: "GET",
                       }

@@ -9,7 +9,7 @@ export default function SubNews(props) {
   const [articles, setArticles] = useState([])
   const [userData, setUserData] = useState(null)
   useEffect(() => {
-    fetch(`http://localhost:8080/v1/articles?category=${props.category}`, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/v1/articles?category=${props.category}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

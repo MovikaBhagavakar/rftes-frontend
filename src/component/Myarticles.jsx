@@ -7,7 +7,7 @@ const MyArticles = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:8080/v1/userArticle/${
+      `${process.env.REACT_APP_SERVER_URL}/v1/userArticle/${
         JSON.parse(localStorage.getItem("rftes")).userExist._id
       }`,
       {
@@ -29,8 +29,8 @@ const MyArticles = () => {
         {articles?.map((article, key) => {
           return (
             <NewsItem
-              title={article.heading?.slice(0 , 40)}
-              description={article.description.slice(0 , 85)}
+              title={article.heading?.slice(0, 40)}
+              description={article.description.slice(0, 85)}
               imgurl={article.imgUrl}
               author={JSON.parse(localStorage.getItem("rftes")).userExist.name}
               date={article.createdAt}
@@ -38,7 +38,6 @@ const MyArticles = () => {
               userData={userData}
               setUserData={setUserData}
               source={article.published ? "Published" : "Not Published"}
-              
             />
           );
         })}

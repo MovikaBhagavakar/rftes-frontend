@@ -9,7 +9,7 @@ const NewsItem = (props) => {
   let { title, description, imgurl, nwesurl, author, date, source, id } = props;
 
   useEffect(() => {
-    fetch(`http://localhost:8080/v1/users/${JSON.parse(localStorage.getItem("rftes")).userExist._id}`, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/v1/users/${JSON.parse(localStorage.getItem("rftes")).userExist._id}`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${JSON.parse(localStorage.getItem("rftes")).token}`
@@ -27,7 +27,7 @@ const NewsItem = (props) => {
   }, [props.userData])
 
   useEffect(() => {
-    fetch(`http://localhost:8080/v1/users/${JSON.parse(localStorage.getItem("rftes")).userExist._id}`, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/v1/users/${JSON.parse(localStorage.getItem("rftes")).userExist._id}`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${JSON.parse(localStorage.getItem("rftes")).token}`
@@ -45,7 +45,7 @@ const NewsItem = (props) => {
       userDataArr?.splice(index, 1)
       props.setUserData(userDataArr)
 
-      fetch(`http://localhost:8080/v1/users/${JSON.parse(localStorage.getItem("rftes")).userExist._id}`, {
+      fetch(`${process.env.REACT_APP_SERVER_URL}/v1/users/${JSON.parse(localStorage.getItem("rftes")).userExist._id}`, {
         method: "POST",
         body: JSON.stringify({
           favourites: userDataArr
@@ -60,7 +60,7 @@ const NewsItem = (props) => {
       const updatedState = [...props.userData, id]
       props.setUserData(updatedState)
       // console.log(props.userData)
-      fetch(`http://localhost:8080/v1/users/${JSON.parse(localStorage.getItem("rftes")).userExist._id}`, {
+      fetch(`${process.env.REACT_APP_SERVER_URL}/v1/users/${JSON.parse(localStorage.getItem("rftes")).userExist._id}`, {
         method: "POST",
         body: JSON.stringify({
           favourites: updatedState

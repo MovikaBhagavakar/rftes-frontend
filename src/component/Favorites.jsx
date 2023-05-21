@@ -9,7 +9,7 @@ const Favorites = (props) => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:8080/v1/users/${
+      `${process.env.REACT_APP_SERVER_URL}/v1/users/${
         JSON.parse(localStorage.getItem("rftes")).userExist._id
       }`,
       {

@@ -42,7 +42,7 @@ function LoginDetails() {
           }}
           onClick={(e) => {
             e.preventDefault();
-            fetch("http://localhost:8080/v1/users/signin", {
+            fetch(`${process.env.REACT_APP_SERVER_URL}/v1/users/signin`, {
               body: JSON.stringify({
                 email,
                 password,

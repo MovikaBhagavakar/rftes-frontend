@@ -14,7 +14,9 @@ export default function Artical() {
   useEffect(() => {
     if (location.pathname !== "/create-article") {
       fetch(
-        `http://localhost:8080/v1/articles/${location.pathname.split("/")[2]}`,
+        `${process.env.REACT_APP_SERVER_URL}/v1/articles/${
+          location.pathname.split("/")[2]
+        }`,
         {
           method: "GET",
           headers: {
@@ -131,7 +133,7 @@ export default function Artical() {
               className="btn btn-primary area area1"
               onClick={() => {
                 if (location.pathname === "/create-article") {
-                  fetch("http://localhost:8080/v1/articles", {
+                  fetch(`${process.env.REACT_APP_SERVER_URL}/v1/articles`, {
                     method: "POST",
                     headers: {
                       Accept: "application/json",
@@ -160,7 +162,7 @@ export default function Artical() {
                     });
                 } else {
                   fetch(
-                    `http://localhost:8080/v1/articles/${
+                    `${process.env.REACT_APP_SERVER_URL}/v1/articles/${
                       location.pathname.split("/")[2]
                     }`,
                     {

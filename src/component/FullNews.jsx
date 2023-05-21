@@ -9,7 +9,9 @@ const FullNews = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:8080/v1/articles/${location.pathname.split("/")[2]}`,
+      `${process.env.REACT_APP_SERVER_URL}/v1/articles/${
+        location.pathname.split("/")[2]
+      }`,
       {
         method: "GET",
         headers: {

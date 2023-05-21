@@ -69,18 +69,21 @@ function Resetpassword({ setNav }) {
             <button
               onClick={(e) => {
                 e.preventDefault();
-                fetch("http://localhost:8080/v1/users/resetPassword", {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                    resetToken: location.pathname.split("/")[2],
-                  },
-                  body: JSON.stringify({
-                    password,
-                    confirmPassword,
-                  }),
-                })
+                fetch(
+                  `${process.env.REACT_APP_SERVER_URL}/v1/users/resetPassword`,
+                  {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                      Accept: "application/json",
+                      resetToken: location.pathname.split("/")[2],
+                    },
+                    body: JSON.stringify({
+                      password,
+                      confirmPassword,
+                    }),
+                  }
+                )
                   .then((res) => res.json())
                   .then((data) => {
                     alert(data.responseMessage);
