@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
+    "env-cmd": "^10.1.0",
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
@@ -21,8 +22,10 @@
     "yup": "^1.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start_local": "env-cmd -f ./config/env/.env.local react-scripts start",
+    "build_local": "env-cmd -f ./config/env/.env.local react-scripts build",
+    "start_live": "env-cmd -f ./config/env/.env.live react-scripts start",
+    "build_live": "env-cmd -f ./config/env/.env.live react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
