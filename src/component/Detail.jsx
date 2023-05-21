@@ -49,7 +49,7 @@ export default function Detail() {
         password: values.password,
         confirmPassword: values.confirmPassword,
       };
-      alert(JSON.stringify(formValues));
+
       fetch("http://localhost:8080/v1/users/signup", {
         body: JSON.stringify(formValues),
         headers: {
@@ -98,7 +98,6 @@ export default function Detail() {
     },
   });
 
-  console.log(questionsnumber);
   return (
     <>
       <div>
