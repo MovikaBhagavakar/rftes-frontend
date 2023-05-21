@@ -29,8 +29,8 @@ const MyArticles = () => {
         {articles?.map((article, key) => {
           return (
             <NewsItem
-              title={article.heading}
-              description={article.description}
+              title={article.heading?.slice(0 , 40)}
+              description={article.description.slice(0 , 85)}
               imgurl={article.imgUrl}
               author={JSON.parse(localStorage.getItem("rftes")).userExist.name}
               date={article.createdAt}
